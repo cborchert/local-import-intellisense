@@ -10,6 +10,10 @@
     "Other"
   ],
   "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact",
     "onCommand:local-import-intellisense.form-import"
   ],
   "main": "./out/extension.js",

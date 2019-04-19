@@ -1,24 +1,13 @@
-import { workspace, window } from "vscode";
-import { getCurrentPath, getRelativePath } from "../utils/utils";
+import { window } from "vscode";
+import { getCurrentPath, getRelativePath, getLocalFiles } from "../utils/utils";
 
 /**
  * Adds an import
  */
 export default async function formImport() {
-  //TODO: This list of files should be stored in a cache or store of kind which is updated whenever:
-  // a) The extension starts
-  // b) The user's root directory changes
-  // c) A file is created or deleted
-  const files = await workspace.findFiles(
-    // TODO: This should be more inclusive (maybe even all files)
-    // TODO: This should be pulled fom a config file
-    "**/*.js",
-    // TODO: This should be pulled from a config file
-    "**/node_modules/**"
-  );
-
   // Get the user's current directory's path
   const currentPath = getCurrentPath();
+  const files = await getLocalFiles();
 
   window
     .showQuickPick(

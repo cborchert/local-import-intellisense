@@ -31,3 +31,21 @@ export function getCurrentPath() {
     ? workspace.workspaceFolders[0].uri.fsPath
     : "";
 }
+
+/**
+ * List the files in the local workspace
+ */
+export function getLocalFiles() {
+  //TODO: This list of files should be stored in a cache or store of kind which is updated whenever:
+  // a) The extension starts
+  // b) The user's root directory changes
+  // c) A file is created or deleted
+  const files = workspace.findFiles(
+    // TODO: This should be more inclusive (maybe even all files)
+    // TODO: This should be pulled fom a config file
+    "**/*.js",
+    // TODO: This should be pulled from a config file
+    "**/node_modules/**"
+  );
+  return files;
+}
