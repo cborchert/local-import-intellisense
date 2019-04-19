@@ -1,65 +1,40 @@
 # local-import-intellisense README
 
-This is the README for your extension "local-import-intellisense". After writing up a brief description, we recommend including the following sections.
+A VSCode extension (in the making) to make local imports in large projects easier.
+
+Note that almost everything in this repo is based on the excellent work of Christian Kohler's more or less essential extension [NpmIntellisense](https://github.com/ChristianKohler/NpmIntellisense). Go say thank you.
+
+## To use (Basic)
+
+For the moment we're in the very early stages. Download or clone the repo, install any dependencies using `yarn install`, open the project in VSCode and spin up a demo using `CMD + F5`
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+`// TODO: write features 👀`
 
-For example if there is an image subfolder under your extension project workspace:
+### Command: Insert Import Statement
 
-\!\[feature X\]\(images/feature-x.png\)
+`CMD+SHIFT+P` then type "Insert Import Statement" and hit `Enter`. A quickPick dialog will pop up to help you out!
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Intellisense
+
+Type a standard Import statement in a javascript or typescript file. When you get to the quotes, the intellisense will come to life !
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+`// TODO: write requirements. Can you extend extensions? In that case, this might be better as an extension to NpmIntellisense, honestly.`
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+`// TODO: make extension have settings`
+`// TODO: write extension settings`
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+None! because I haven't written any unit tests, and no one has ever used this.
+
+`// TODO: write unit tests`
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+...still in the early stages: no releases yet 😄
