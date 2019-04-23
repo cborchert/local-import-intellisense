@@ -1,6 +1,7 @@
 import { CompletionItem, CompletionItemKind, TextEdit, Range } from "vscode";
 import { IntellisenseState } from "./IntellisenseState";
 
+// TODO: Add explanitory comments
 export class ImportCompletionItem extends CompletionItem {
   constructor(label: string, state: IntellisenseState) {
     super(label);

@@ -11,6 +11,7 @@ import { ImportCompletionItem } from "./ImportCompletionItem";
 import { shouldProvide } from "./shouldProvide";
 import { IntellisenseState } from "./IntellisenseState";
 
+// TODO: Add explanitory comments
 export default class IntellisenseProvider implements CompletionItemProvider {
   provideCompletionItems(
     document: TextDocument,
@@ -40,6 +41,7 @@ async function provide(state: IntellisenseState) {
     .map(dependency => toCompletionItem(dependency, state));
 }
 
+// TODO: Add explanitory comments
 function toCompletionItem(dependency: string, state: IntellisenseState) {
   return new ImportCompletionItem(dependency, state);
 }

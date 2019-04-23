@@ -1,7 +1,7 @@
 import { IntellisenseState } from "./IntellisenseState";
 
 // Lifted almost directly from NPMIntellisense.
-
+// TODO: Add explanitory comments
 export function shouldProvide(state: IntellisenseState) {
   return isImportOrRequire(state.textCurrentLine, state.cursorPosition);
 }

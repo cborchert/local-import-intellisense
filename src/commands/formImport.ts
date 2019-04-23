@@ -2,7 +2,7 @@ import { window } from "vscode";
 import { getCurrentPath, getRelativePath, getLocalFiles } from "../utils/utils";
 
 /**
- * Adds an import
+ * Creates a JS import statement and adds it to the text
  */
 export default async function formImport() {
   // Get the user's current directory's path
