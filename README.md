@@ -24,10 +24,46 @@ Type a standard Import statement in a javascript or typescript file. When you ge
 
 `// TODO: write requirements. Can you extend extensions? In that case, this might be better as an extension to NpmIntellisense, honestly.`
 
-## Extension Settings
+## Extension Settings / Configuration
 
-`// TODO: make extension have settings`
-`// TODO: write extension settings`
+`// TODO: write about extension settings`
+
+| Config Property       | Type      | Default                               | Description                                                                                           |
+| --------------------- | --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| importES6             | boolean   | `true`                                | For import command. Use import statements instead of require()                                        |
+| importQuotes          | string    | `"'"` (single quote)                  | For import command. The type of quotes to use in the snippet                                          |
+| importLinebreak       | string    | `";\r\n"`                             | For import command. The linebreak used after the snippet                                              |
+| importDeclarationType | string    | `"const"`                             | For import command. The declaration type used for require()                                           |
+| languageSelectors     | Array<{}> | _see below_                           | In what kind of files should local import intellisense do its magic ?                                 |
+| importMatch           | string    | `"**/*.{js,ts,css,scss,svg,jpg,png}"` | What is the GlobPattern that local import intellisense should use to find local files to import from? |
+| importIgnore          | string    | `"**/node_modules/**"`                | What is the GlobPattern that local import intellisense should use to ignore imports?                  |
+
+### languageSelectors default value
+
+The default value of languageSelectors is as follows. Note that we are using the sheme and language properties.
+
+```
+[
+  {
+    "scheme": "file",
+    "language": "javascript"
+  },
+  {
+    "scheme": "file",
+    "language": "javascriptreact"
+  },
+  {
+    "scheme": "file",
+    "language": "typescript"
+  },
+  {
+    "scheme": "file",
+    "language": "typescriptreact"
+  }
+]
+```
+
+`// TODO: Explain why we do this`
 
 ## Known Issues
 

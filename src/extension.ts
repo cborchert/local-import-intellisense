@@ -1,6 +1,7 @@
 import { workspace, commands, ExtensionContext, languages } from "vscode";
 import IntellisenseProvider from "./provider/IntellisenseProvider";
 import formImport from "./commands/formImport";
+import { getConfig } from "./utils/config";
 
 export function activate(context: ExtensionContext) {
   // local imports don't make sense if you're not in a workspace
@@ -9,16 +10,15 @@ export function activate(context: ExtensionContext) {
     const provider = new IntellisenseProvider();
     // What will trigger the end of intellisense tip
     const triggers = ['"', "'", "`"];
-    // TODO: This should probably come from config as well
-    const selector = [
-      "typescript",
-      "javascript",
-      "javascriptreact",
-      "typescriptreact"
-    ];
+    const languageSelectors = getConfig().languageSelectors;
+
     // When the user is typing in import statement, it will trigger an intellisense of local files
     context.subscriptions.push(
-      languages.registerCompletionItemProvider(selector, provider, ...triggers)
+      languages.registerCompletionItemProvider(
+        languageSelectors,
+        provider,
+        ...triggers
+      )
     );
 
     // Set up the manual command portion of the extensions
@@ -33,7 +33,10 @@ export function activate(context: ExtensionContext) {
       )
     );
   }
+  console.log("Extension Local Import Intellisense Activated :)");
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() {
+  console.log("Extension Local Import Intellisense Dectivated :C");
+}

@@ -23,7 +23,65 @@
         "command": "local-import-intellisense.form-import",
         "title": "Local Import Intellisense: Insert Import Statement"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "local-import-intellisense",
+      "properties": {
+        "local-import-intellisense.importES6": {
+          "type": "boolean",
+          "default": true,
+          "description": "For import command. Use import statements instead of require()"
+        },
+        "local-import-intellisense.importQuotes": {
+          "type": "string",
+          "default": "'",
+          "description": "For import command. The type of quotes to use in the snippet"
+        },
+        "local-import-intellisense.importLinebreak": {
+          "type": "string",
+          "default": ";\r\n",
+          "description": "For import command. The linebreak used after the snippet"
+        },
+        "local-import-intellisense.importDeclarationType": {
+          "type": "string",
+          "default": "const",
+          "description": "For import command. The declaration type used for require()"
+        },
+        "local-import-intellisense.languageSelectors": {
+          "type": "array",
+          "default": [
+            {
+              "scheme": "file",
+              "language": "javascript"
+            },
+            {
+              "scheme": "file",
+              "language": "javascriptreact"
+            },
+            {
+              "scheme": "file",
+              "language": "typescript"
+            },
+            {
+              "scheme": "file",
+              "language": "typescriptreact"
+            }
+          ],
+          "description": "In what kind of files should local import intellisense do its magic ?"
+        },
+        "local-import-intellisense.importMatch": {
+          "type": "string",
+          "default": "**/*.{js,ts,css,scss,svg,jpg,png}",
+          "description": "What is the GlobPattern that local import intellisense should use to find local files to import from?"
+        },
+        "local-import-intellisense.importIgnore": {
+          "type": "string",
+          "default": "**/node_modules/**",
+          "description": "What is the GlobPattern that local import intellisense should use to ignore imports?"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
@@ -32,6 +90,7 @@
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "yarn run compile && node ./node_modules/vscode/bin/test"
   },
+  "icon": "images/icon.png",
   "devDependencies": {
     "typescript": "^3.3.1",
     "vscode": "^1.1.28",

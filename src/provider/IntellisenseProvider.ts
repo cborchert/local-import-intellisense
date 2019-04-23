@@ -5,7 +5,7 @@ import {
   CompletionItem,
   workspace
 } from "vscode";
-import { getLocalFiles, getRelativePath, getCurrentPath } from "../utils/utils";
+import { getRelativeFilePaths } from "../utils/utils";
 import { dirname } from "path";
 import { ImportCompletionItem } from "./ImportCompletionItem";
 import { shouldProvide } from "./shouldProvide";
@@ -25,20 +25,14 @@ export default class IntellisenseProvider implements CompletionItemProvider {
       cursorLine: position.line
     };
 
-    // return shouldProvide(state)
-    //   ? provide(state, getConfig(), fsf)
-    //   : Promise.resolve([]);
     return shouldProvide(state) ? provide(state) : Promise.resolve([]);
   }
 }
 
 async function provide(state: IntellisenseState) {
-  //TODO: This is a repeated formula (see ../commands/formImport.ts). We should extract it.
-  const files = await getLocalFiles();
-  const currentPath = getCurrentPath();
-  return files
-    .map((file: { path: string }) => getRelativePath(currentPath, file.path))
-    .map(dependency => toCompletionItem(dependency, state));
+  // Return relative paths as completion items
+  const relativePaths = await getRelativeFilePaths();
+  return relativePaths.map(dependency => toCompletionItem(dependency, state));
 }
 
 // TODO: Add explanitory comments
